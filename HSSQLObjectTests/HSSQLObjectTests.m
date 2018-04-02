@@ -10,6 +10,7 @@
 #import "HSSQLObject.h"
 #import "HSSQLColumnWithTable.h"
 #import "HSSQLColumnWithOperator.h"
+#import "HSCustomSQLValue.h"
 #import "NSString+SQLHelper.h"
 
 NSString *const tableName = @"tableName";
@@ -320,6 +321,17 @@ NSString *const columnE = @"columnE";
     @"ASC LIMIT 5";
     NSString *generated = [sqlobj generateQuery];
     XCTAssertTrue([expected isEqualToString:generated]);
+}
+
+- (void)testCustomSQLValue {
+    HSSQLObject *sqlobj = [[HSSQLObject alloc] initWith:SELECT tableName:tableName];
+    [sqlobj select:@[columnA, columnB, columnC]];
+    
+    HSCustomSQLValue *customValue = [HSCustomSQLValue valueOfSQLString:@"SELECT id FROM tabeleB where columnZ = 1"];
+    [sqlobj where:@{columnA : customValue}];
+    NSString *expectedA = @"SELECT columnA,columnB,columnC FROM tableName WHERE (columnA = (SELECT id FROM tabeleB where columnZ = 1))";
+    NSString *generatedA = [sqlobj generateQuery];
+    XCTAssertTrue([expectedA isEqualToString:generatedA]);
 }
 
 @end

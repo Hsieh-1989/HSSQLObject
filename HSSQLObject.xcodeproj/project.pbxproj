@@ -24,6 +24,8 @@
 		170C7245205CF954001005CE /* HSSQLColumnWithOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 170C7243205CF954001005CE /* HSSQLColumnWithOperator.m */; };
 		170C7248205CFC0F001005CE /* HSSQLObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 170C7246205CFC0F001005CE /* HSSQLObject.h */; };
 		170C7249205CFC0F001005CE /* HSSQLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 170C7247205CFC0F001005CE /* HSSQLObject.m */; };
+		173873DD20725DBC00033039 /* HSCustomSQLValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 173873DB20725DBC00033039 /* HSCustomSQLValue.h */; };
+		173873DE20725DBC00033039 /* HSCustomSQLValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 173873DC20725DBC00033039 /* HSCustomSQLValue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		170C7243205CF954001005CE /* HSSQLColumnWithOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSSQLColumnWithOperator.m; sourceTree = "<group>"; };
 		170C7246205CFC0F001005CE /* HSSQLObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSSQLObject.h; sourceTree = "<group>"; };
 		170C7247205CFC0F001005CE /* HSSQLObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSSQLObject.m; sourceTree = "<group>"; };
+		173873DB20725DBC00033039 /* HSCustomSQLValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSCustomSQLValue.h; sourceTree = "<group>"; };
+		173873DC20725DBC00033039 /* HSCustomSQLValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSCustomSQLValue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 				170C723F205CF6CF001005CE /* HSSQLColumnWithTable.m */,
 				170C7242205CF954001005CE /* HSSQLColumnWithOperator.h */,
 				170C7243205CF954001005CE /* HSSQLColumnWithOperator.m */,
+				173873DB20725DBC00033039 /* HSCustomSQLValue.h */,
+				173873DC20725DBC00033039 /* HSCustomSQLValue.m */,
 				170C7246205CFC0F001005CE /* HSSQLObject.h */,
 				170C7247205CFC0F001005CE /* HSSQLObject.m */,
 			);
@@ -172,6 +178,7 @@
 				170C722D205CF2A4001005CE /* HSSQLValueProtocol.h in Headers */,
 				170C7221205CF1B1001005CE /* HSSQLObject.h in Headers */,
 				170C7232205CF3DC001005CE /* NSString+SQLHelper.h in Headers */,
+				173873DD20725DBC00033039 /* HSCustomSQLValue.h in Headers */,
 				170C7248205CFC0F001005CE /* HSSQLObject.h in Headers */,
 				170C7240205CF6CF001005CE /* HSSQLColumnWithTable.h in Headers */,
 				170C7244205CF954001005CE /* HSSQLColumnWithOperator.h in Headers */,
@@ -223,7 +230,7 @@
 		170C7207205CF1B1001005CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Hsieh;
 				TargetAttributes = {
 					170C720F205CF1B1001005CE = {
@@ -276,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173873DE20725DBC00033039 /* HSCustomSQLValue.m in Sources */,
 				170C7241205CF6CF001005CE /* HSSQLColumnWithTable.m in Sources */,
 				170C723C205CF660001005CE /* HSSQLConstant.m in Sources */,
 				170C7249205CFC0F001005CE /* HSSQLObject.m in Sources */,
@@ -319,6 +327,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -326,6 +335,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -377,6 +387,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -384,6 +395,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
