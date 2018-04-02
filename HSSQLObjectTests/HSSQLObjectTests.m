@@ -53,6 +53,15 @@ NSString *const columnE = @"columnE";
     XCTAssertTrue([expected isEqualToString:generated]);
 }
 
+- (void)testInsertContainNULLValue {
+    HSSQLObject *sqlobj = [[HSSQLObject alloc] initWith:INSERT tableName:tableName];
+    NSDictionary *insertValueOne = @{columnA: @(1), columnB: [NSNull null], columnC: @"3"};
+    [sqlobj insert:@[insertValueOne]];
+    NSString *expected = @"INSERT INTO tableName (columnA,columnB,columnC) VALUES (1,NULL,'3')";
+    NSString *generated = [sqlobj generateQuery];
+    XCTAssertTrue([expected isEqualToString:generated]);
+}
+
 - (void)testUdpate {
     HSSQLObject *sqlobj = [[HSSQLObject alloc] initWith:UPDATE tableName:tableName];
     [sqlobj update:columnA value:@(1)];
@@ -62,6 +71,20 @@ NSString *const columnE = @"columnE";
     
     [sqlobj update:@{columnB: @(2), columnC: @"3"}];
     NSString *expectedB = @"UPDATE tableName SET columnA = 1 , columnB = 2 , columnC = '3'";
+    NSString *generateB = [sqlobj generateQuery];
+    NSLog(@"UPDATE: %@", generateB);
+    XCTAssertTrue([expectedB isEqualToString:generateB]);
+}
+
+- (void)testUdpateContainNULLValue {
+    HSSQLObject *sqlobj = [[HSSQLObject alloc] initWith:UPDATE tableName:tableName];
+    [sqlobj update:columnA value:[NSNull null]];
+    NSString *expectedA = @"UPDATE tableName SET columnA = NULL";
+    NSString *generatedA = [sqlobj generateQuery];
+    XCTAssertTrue([expectedA isEqualToString:generatedA]);
+    
+    [sqlobj update:@{columnB: [NSNull null], columnC: @"3"}];
+    NSString *expectedB = @"UPDATE tableName SET columnA = NULL , columnB = NULL , columnC = '3'";
     NSString *generateB = [sqlobj generateQuery];
     NSLog(@"UPDATE: %@", generateB);
     XCTAssertTrue([expectedB isEqualToString:generateB]);

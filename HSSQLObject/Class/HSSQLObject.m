@@ -214,9 +214,7 @@ static inline BOOL isEmpty(id obj) {
 
 - (NSString *)convertSetClauseFrom:(HSSQLSetValueDictionary *)parametersDic {
     return [self convertParameters:parametersDic seperator:@"," convert:^NSString *(NSObject<HSSQLColumnWithOperatorProtocol> *key, NSObject<HSSQLValueProtocol> *obj) {
-        NSString *operator = [key operatorAcoordingValue:obj defaultOperator:@"="];
-        NSLog(@"%@ %@ %@", key.column, operator, obj.SQLValueString);
-        return [NSString stringWithFormat:@"%@ %@ %@", key.column, operator, obj.SQLValueString];
+        return [NSString stringWithFormat:@"%@ = %@", key.column, obj.SQLValueString];
     }];
 }
 - (NSString *)convertJoinClauseFrom:(NSMutableDictionary<HSSQLConditionKey *,HSSQLConditionArray *> *)joinConfig {
