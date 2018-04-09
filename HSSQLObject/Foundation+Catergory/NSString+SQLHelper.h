@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HSSQLConstant.h"
 
 @interface NSString (SQLHelper)
 
 - (NSString *)escapingSingleQuote;
 - (NSString *)trimWhiteSpace;
 - (NSString *)tableNameBindColumnNamed:(NSString *)column;
+- (NSString *)bindOperator:(HSSQLConditionOperator)sqlOperator;
 
 @end

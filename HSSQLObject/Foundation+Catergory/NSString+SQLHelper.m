@@ -22,4 +22,8 @@
     return [[NSString stringWithFormat:@"%@.%@", self, column] escapingSingleQuote];
 }
 
+- (NSString *)bindOperator:(HSSQLConditionOperator)sqlOperator {
+    return [NSString stringWithFormat:@"%@ %@", self, sqlOperator];
+}
+
 @end

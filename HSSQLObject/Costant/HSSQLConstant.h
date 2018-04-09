@@ -15,6 +15,7 @@ extern HSSQLConditionOperator const HSConditionNotEqual;
 extern HSSQLConditionOperator const HSConditionNULL;
 extern HSSQLConditionOperator const HSConditionNotNull;
 extern HSSQLConditionOperator const HSConditionLike;
+extern HSSQLConditionOperator const HSConditionIN;
 
 #pragma mark - QueryOrder Enum
 typedef NSString * HSQueryOrder NS_TYPED_ENUM;

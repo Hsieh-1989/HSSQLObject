@@ -14,6 +14,7 @@ HSSQLConditionOperator const HSConditionNotEqual = @"!=";
 HSSQLConditionOperator const HSConditionNULL = @"IS";
 HSSQLConditionOperator const HSConditionNotNull = @"IS NOT";
 HSSQLConditionOperator const HSConditionLike = @"LIKE";
+HSSQLConditionOperator const HSConditionIN = @"IN";
 
 #pragma mark - QueryOrder Enum
 HSQueryOrder const HSQueryOrderASC = @"ASC";

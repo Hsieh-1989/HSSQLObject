@@ -11,6 +11,7 @@
 #import "HSSQLColumnWithTable.h"
 #import "HSSQLColumnWithOperator.h"
 #import "HSCustomSQLValue.h"
+#import "HSArraySQLValue.h"
 #import "NSString+SQLHelper.h"
 
 NSString *const tableName = @"tableName";
@@ -333,5 +334,18 @@ NSString *const columnE = @"columnE";
     NSString *generatedA = [sqlobj generateQuery];
     XCTAssertTrue([expectedA isEqualToString:generatedA]);
 }
+
+- (void)testArrayValue {
+    HSSQLObject *sqlobj = [[HSSQLObject alloc] initWith:SELECT tableName:tableName];
+    [sqlobj select:@[columnA, columnB, columnC]];
+    HSArraySQLValue *intArray = [HSArraySQLValue sqlValueOfArray:@[@1, @2, @3]];
+    HSArraySQLValue *stringArray = [HSArraySQLValue sqlValueOfArray:@[@"4", @"5", @"6"]];
+    NSString *expectedA = @"SELECT columnA,columnB,columnC FROM tableName WHERE (columnA IN (1,2,3) AND columnB IN ('4','5','6'))";
+    [sqlobj where:@{[@"columnA" bindOperator:HSConditionIN] : intArray,
+                    [@"columnB" bindOperator:HSConditionIN] : stringArray}];
+    NSString *generatedA = [sqlobj generateQuery];
+    XCTAssertTrue([expectedA isEqualToString:generatedA]);
+}
+
 
 @end
